@@ -1,0 +1,41 @@
+from sklearn.datasets import load_iris
+import pandas as pd
+
+iris=load_iris()
+ 
+dir(iris)
+
+iris.data[0]
+
+iris.DESCR
+
+X=iris.data
+y=iris.target
+
+x
+y
+
+from sklearn.model_selection import train_test_split
+
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=42)
+
+len(X_train)
+
+len(X_test)
+
+iris.target_names
+
+from sklearn.linear_model import LogisticRegression
+model=LogisticRegression()
+
+
+model.fit(X_train,y_train)
+
+
+iris.target[149]
+
+model.predict([iris.data[149]])
+
+model.predict(iris.data)
+
+model.score(X_test,y_test)

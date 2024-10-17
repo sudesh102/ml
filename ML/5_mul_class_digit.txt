@@ -1,0 +1,38 @@
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_digits
+
+digits=load_digits()
+
+dir(digits)
+
+digits.data[0]
+
+plt.gray()
+plt.matshow(digits.images[0])
+
+plt.gray()
+for i in range(10):
+    plt.matshow(digits.images[i])  #to print all digits from 0 to 9 for loop
+
+digits.target[0:10]
+
+from sklearn.model_selection import train_test_split
+
+x_train,x_test,y_train,y_test=train_test_split(digits.data,digits.target,test_size=0.2)
+
+len(x_train)
+
+len(x_test)
+
+from sklearn.linear_model import LogisticRegression
+model=LogisticRegression()
+
+model.fit(x_train,y_train)
+
+plt.matshow(digits.images[67])
+
+digits.target[67]
+
+model.predict(digits.data[0:10])
+
+model.score(x_test,y_test)

@@ -1,0 +1,26 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+
+
+df=pd.read_csv("E:\\22UCS073\\Expt4\\insurance_data.csv")
+df
+
+%matplotlib inline
+plt.xlabel("age")
+plt.ylabel("bought_insurance")
+plt.scatter(df.age,df.bought_insurance,marker='*',color='blue')
+
+
+from sklearn.model_selection import train_test_split
+
+X_train,X_test,Y_train,Y_test=train_test_split(df[['age']],df.bought_insurance,train_size=0.8)
+
+model=linear_model.LogisticRegression()
+model.fit(X_train,Y_train)
+
+model.predict(X_test)
+
+model.score(X_test,Y_test)
+
+model.predict([[54]])
